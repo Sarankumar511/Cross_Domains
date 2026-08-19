@@ -1,0 +1,82 @@
+[
+  {
+    "id": "nlp-ner-domain-shift",
+    "title": "Robust Named Entity Recognition under Domain Shift",
+    "domain": "Natural Language Processing",
+    "authors": "A. Rao et al.",
+    "year": 2023,
+    "abstract": "We study named entity recognition (NER) models trained on newswire text and evaluate their robustness when applied to social media and biomedical text.",
+    "limitations_text": "However, the model's performance drops sharply when applied to text from a new domain not seen during training. A key limitation is that it lacks a mechanism to adapt to this distribution shift without full retraining on large amounts of target-domain labeled data, which is rarely available in practice. Future work should explore lightweight adaptation strategies that work with very few target-domain examples.",
+    "method_text": "We propose adversarial domain-invariant feature learning combined with lightweight fine-tuning on a small target-domain sample, allowing the model to retain source-domain performance while adapting quickly to a new domain."
+  },
+  {
+    "id": "robotics-sim-to-real",
+    "title": "Sim-to-Real Transfer for Robotic Grasping",
+    "domain": "Robotics",
+    "authors": "J. Fenwick et al.",
+    "year": 2024,
+    "abstract": "We train a robotic grasping policy entirely in simulation and study its performance when deployed on a physical robot arm.",
+    "limitations_text": "When a robot trained purely in simulation is deployed in a new physical environment, its grasp success rate degrades substantially due to the reality gap. A limitation of current methods is that they require extensive real-world retraining to close this gap, which is slow and expensive with physical hardware. Future research should focus on minimizing the amount of real-world data needed for adaptation.",
+    "method_text": "We use domain randomization during simulation combined with a small amount of real-world calibration data, enabling the policy to adapt to a new physical environment with only a handful of real trials."
+  },
+  {
+    "id": "medicine-ecg-arrhythmia",
+    "title": "Arrhythmia Detection from Wearable ECG Signals",
+    "domain": "Medicine",
+    "authors": "S. Meyer, T. Okafor",
+    "year": 2022,
+    "abstract": "We investigate deep learning classifiers for detecting cardiac arrhythmia from ECG signals captured by consumer wearable devices.",
+    "limitations_text": "However, the model produces frequent false positives when ECG signals are corrupted by motion artifacts and noise from wearable sensors. A significant limitation is that current denoising techniques fail to generalize across patients with different noise characteristics. Future work is needed on noise-robust signal processing that adapts to each patient's sensor conditions.",
+    "method_text": "We apply a wavelet-based adaptive filtering method followed by a lightweight CNN classifier trained with noise-augmented data, improving robustness to motion artifacts."
+  },
+  {
+    "id": "energy-grid-fault-detection",
+    "title": "Fault Detection in Power Grid Sensor Networks",
+    "domain": "Energy Systems",
+    "authors": "P. Nkemelu et al.",
+    "year": 2023,
+    "abstract": "We propose a monitoring system for detecting equipment faults in a distributed power grid using networked sensors.",
+    "limitations_text": "Sensor readings from the power grid are frequently corrupted by transient noise and communication errors. This remains a challenge because it causes the fault-detection system to raise false alarms and occasionally miss real faults. Future work should address noise-robust detection that can distinguish sensor artifacts from genuine faults.",
+    "method_text": "We apply a Kalman-filter-based signal denoising stage before a gradient-boosted classifier detects fault patterns, reducing false alarms caused by transient sensor noise."
+  },
+  {
+    "id": "civil-bridge-shm",
+    "title": "Structural Health Monitoring of Bridges using Vibration Sensors",
+    "domain": "Civil Engineering",
+    "authors": "L. Vartanian, R. Suomi",
+    "year": 2021,
+    "abstract": "We deploy a network of vibration sensors on a highway bridge and study methods for detecting early structural degradation.",
+    "limitations_text": "Long-term monitoring of bridge structures produces massive volumes of vibration sensor data. A limitation of manual inspection is that reviewing all of it for early signs of structural degradation is prohibitively time-consuming, and in practice damage is often only caught after it has become severe. Future work should investigate automated methods for flagging anomalies for engineer review before failure occurs.",
+    "method_text": "We use unsupervised anomaly detection on sensor time-series to automatically flag statistically unusual vibration patterns for engineer review before failure occurs, reducing manual inspection effort."
+  },
+  {
+    "id": "materials-fatigue-failure",
+    "title": "Predicting Fatigue Failure in Aerospace Alloys",
+    "domain": "Materials Science",
+    "authors": "H. Dubois et al.",
+    "year": 2024,
+    "abstract": "We study data-driven approaches for predicting the fatigue life of aerospace-grade aluminum and titanium alloys.",
+    "limitations_text": "However, predicting the point of fatigue failure in aerospace alloys currently requires destructive testing of many physical samples. This is a major limitation because such testing is expensive and does not scale to the large design space of candidate alloy compositions. Future work should reduce the number of physical experiments needed without sacrificing prediction accuracy.",
+    "method_text": "We combine physics-informed simulation with active learning to select the most informative next samples for physical testing, substantially reducing the number of experiments required to reach a target accuracy."
+  },
+  {
+    "id": "cv-lowlight-detection",
+    "title": "Object Detection in Low-Light Surveillance Footage",
+    "domain": "Computer Vision",
+    "authors": "M. Alonso, K. Iwata",
+    "year": 2023,
+    "abstract": "We evaluate object detection models on nighttime and low-light surveillance camera footage from urban environments.",
+    "limitations_text": "Object detection accuracy drops significantly in low-light or nighttime footage. A key limitation is that training datasets are dominated by well-lit daytime images, and collecting large labeled low-light datasets is costly and labor-intensive. Future work should explore ways to train robust detectors with only a small amount of labeled low-light data.",
+    "method_text": "We use a GAN-based image enhancement module to synthetically brighten low-light frames before detection, trained with only a small paired low-light and daylight dataset."
+  },
+  {
+    "id": "agri-crop-disease",
+    "title": "Crop Disease Classification from Leaf Images",
+    "domain": "Agriculture",
+    "authors": "N. Adeyemi et al.",
+    "year": 2022,
+    "abstract": "We build an image classification pipeline to identify crop diseases from smartphone photographs of plant leaves.",
+    "limitations_text": "Classification accuracy for rare crop diseases is poor. This limitation arises because labeled images for rare disease classes are scarce compared to common diseases, leading to severe class imbalance in the training data. Future research should focus on techniques that work well with very few labeled examples per rare class.",
+    "method_text": "We use few-shot learning with synthetic data augmentation via generative models to increase the number of effective training examples for rare disease classes, improving classification accuracy with limited labeled data."
+  }
+]

@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+data/index/*.faiss
+data/index/*.json
+!data/sample_papers/papers.json
+frontend/node_modules/
+frontend/dist/
