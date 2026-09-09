@@ -1,0 +1,111 @@
+{
+  "domain": "IndustrialReliability",
+  "generated_utc": "2026-09-07T10:07:29+00:00",
+  "params": {
+    "per_area": 50,
+    "source_quotas": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "sources": [
+      "arxiv",
+      "openalex"
+    ],
+    "test_ratio": 0.2,
+    "seed": 42,
+    "areas": [
+      "PredictiveMaintenance",
+      "RemainingUsefulLife",
+      "BearingFaultDiagnosis",
+      "QualityInspection",
+      "ProcessMonitoring",
+      "DigitalTwin",
+      "VibrationAnalysis",
+      "AnomalyDetection"
+    ]
+  },
+  "totals": {
+    "records": 386,
+    "train": 308,
+    "test": 78,
+    "with_pdf": 193,
+    "pdf_coverage": 0.5
+  },
+  "by_source": {
+    "arxiv": 197,
+    "openalex": 189
+  },
+  "raw_fetched_by_area": {
+    "PredictiveMaintenance": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "RemainingUsefulLife": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "BearingFaultDiagnosis": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "QualityInspection": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "ProcessMonitoring": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "DigitalTwin": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "VibrationAnalysis": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "AnomalyDetection": {
+      "arxiv": 25,
+      "openalex": 25
+    }
+  },
+  "records_by_area": {
+    "PredictiveMaintenance": 49,
+    "RemainingUsefulLife": 50,
+    "BearingFaultDiagnosis": 48,
+    "QualityInspection": 49,
+    "ProcessMonitoring": 45,
+    "DigitalTwin": 49,
+    "VibrationAnalysis": 46,
+    "AnomalyDetection": 50
+  },
+  "train_by_area": {
+    "AnomalyDetection": 40,
+    "BearingFaultDiagnosis": 38,
+    "DigitalTwin": 39,
+    "PredictiveMaintenance": 39,
+    "ProcessMonitoring": 36,
+    "QualityInspection": 39,
+    "RemainingUsefulLife": 40,
+    "VibrationAnalysis": 37
+  },
+  "test_by_area": {
+    "AnomalyDetection": 10,
+    "BearingFaultDiagnosis": 10,
+    "DigitalTwin": 10,
+    "PredictiveMaintenance": 10,
+    "ProcessMonitoring": 9,
+    "QualityInspection": 10,
+    "RemainingUsefulLife": 10,
+    "VibrationAnalysis": 9
+  },
+  "pdf_stats": {
+    "downloaded": 193,
+    "failed": 4,
+    "no_source": 189,
+    "skipped_dead_route": 0,
+    "by_source": {
+      "arxiv": 193
+    }
+  }
+}

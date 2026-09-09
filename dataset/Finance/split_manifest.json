@@ -1,0 +1,111 @@
+{
+  "domain": "Finance",
+  "generated_utc": "2026-09-07T10:12:20+00:00",
+  "params": {
+    "per_area": 50,
+    "source_quotas": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "sources": [
+      "arxiv",
+      "openalex"
+    ],
+    "test_ratio": 0.2,
+    "seed": 42,
+    "areas": [
+      "FraudDetection",
+      "CreditRiskScoring",
+      "StockForecasting",
+      "AlgorithmicTrading",
+      "RiskManagement",
+      "PortfolioOptimization",
+      "FinancialNLP",
+      "MarketAnomalyDetection"
+    ]
+  },
+  "totals": {
+    "records": 391,
+    "train": 313,
+    "test": 78,
+    "with_pdf": 189,
+    "pdf_coverage": 0.483
+  },
+  "by_source": {
+    "arxiv": 196,
+    "openalex": 195
+  },
+  "raw_fetched_by_area": {
+    "FraudDetection": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "CreditRiskScoring": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "StockForecasting": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "AlgorithmicTrading": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "RiskManagement": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "PortfolioOptimization": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "FinancialNLP": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "MarketAnomalyDetection": {
+      "arxiv": 25,
+      "openalex": 25
+    }
+  },
+  "records_by_area": {
+    "FraudDetection": 50,
+    "CreditRiskScoring": 50,
+    "StockForecasting": 49,
+    "AlgorithmicTrading": 50,
+    "RiskManagement": 47,
+    "PortfolioOptimization": 50,
+    "FinancialNLP": 48,
+    "MarketAnomalyDetection": 47
+  },
+  "train_by_area": {
+    "AlgorithmicTrading": 40,
+    "CreditRiskScoring": 40,
+    "FinancialNLP": 38,
+    "FraudDetection": 40,
+    "MarketAnomalyDetection": 38,
+    "PortfolioOptimization": 40,
+    "RiskManagement": 38,
+    "StockForecasting": 39
+  },
+  "test_by_area": {
+    "AlgorithmicTrading": 10,
+    "CreditRiskScoring": 10,
+    "FinancialNLP": 10,
+    "FraudDetection": 10,
+    "MarketAnomalyDetection": 9,
+    "PortfolioOptimization": 10,
+    "RiskManagement": 9,
+    "StockForecasting": 10
+  },
+  "pdf_stats": {
+    "downloaded": 189,
+    "failed": 7,
+    "no_source": 195,
+    "skipped_dead_route": 0,
+    "by_source": {
+      "arxiv": 189
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "xsappname": "bridgescout",
+  "tenant-mode": "dedicated",
+  "description": "Security profile for BridgeScout (cross-domain research gap discovery)",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Analyze",
+      "description": "Run BridgeScout gap analysis and view recommendations"
+    },
+    {
+      "name": "uaa.user",
+      "description": "Standard UAA user"
+    }
+  ],
+  "attributes": [],
+  "role-templates": [
+    {
+      "name": "Viewer",
+      "description": "Use the BridgeScout dashboard",
+      "scope-references": [
+        "$XSAPPNAME.Analyze"
+      ]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "BridgeScoutViewer",
+      "description": "BridgeScout Viewer",
+      "role-template-references": [
+        "$XSAPPNAME.Viewer"
+      ]
+    }
+  ],
+  "oauth2-configuration": {
+    "token-validity": 900,
+    "refresh-token-validity": 3600,
+    "redirect-uris": [
+      "https://*.hana.ondemand.com/**",
+      "https://*.cfapps.*.hana.ondemand.com/**",
+      "http://localhost:*/**"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+manifest-Version: 1.0
+Created-By: SAP Application Archive Builder 1.2.47
+
+Name: bridgescout-srv/data.zip
+MTA-Module: bridgescout-srv
+Content-Type: application/zip
+
+
+Name: bridgescout-app-content/resources/data.zip
+MTA-Module: bridgescout-app-content
+Content-Type: application/zip
+
+
+Name: xs-security.json
+MTA-Resource: bridgescout-uaa
+Content-Type: application/json
+
+
+Name: META-INF/mtad.yaml
+Content-Type: text/plain
+

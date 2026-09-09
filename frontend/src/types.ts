@@ -8,6 +8,36 @@ export interface Paper {
   limitations_text: string;
   method_text: string;
   source: string;
+  // Present on the /api/papers listing: "train" | "test" (collected corpus),
+  // "uploaded" (admin), "sample" (bundled seed), "" otherwise.
+  split?: string;
+  sub_area?: string;
+}
+
+export interface Me {
+  authenticated: boolean;
+  is_admin: boolean;
+}
+
+export interface IndexStatus {
+  state: "ready" | "training" | "error";
+  papers: number;
+  passages: number;
+  error: string | null;
+}
+
+export interface AskMatch {
+  paper_id: string;
+  paper_title: string;
+  domain: string;
+  snippet: string;
+  score: number;
+}
+
+export interface AskResponse {
+  question: string;
+  answer_found: boolean;
+  matches: AskMatch[];
 }
 
 export interface Candidate {

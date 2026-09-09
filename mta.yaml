@@ -1,0 +1,184 @@
+_schema-version: "3.3"
+ID: bridgescout
+version: 1.0.0
+description: "BridgeScout - cross-domain research gap discovery (SAP BTP Cloud Foundry)"
+
+parameters:
+  enable-parallel-deployments: true
+  deploy_mode: html5-repo
+  # Keeps the XSUAA app name unique per space without editing xs-security.json.
+  app-name: bridgescout
+
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm --prefix frontend ci
+        - npm --prefix frontend run build:mta
+
+modules:
+  # --------------------------------------------------------------------------
+  # 1. Python FastAPI backend  (bridgescout.api.app:app)
+  # --------------------------------------------------------------------------
+  - name: bridgescout-srv
+    type: python
+    path: .
+    parameters:
+      buildpack: python_buildpack
+      command: uvicorn bridgescout.api.app:app --host 0.0.0.0 --port $PORT
+      memory: 512M
+      disk-quota: 1024M
+      health-check-type: http
+      health-check-http-endpoint: /health
+    build-parameters:
+      ignore:
+        - ".git/"
+        - "frontend/"
+        - "approuter/"
+        - "db/"
+        - "dataset/"
+        - "data/index/"
+        - "data/uploads/"
+        - ".venv/"
+        - "venv/"
+        - "_inspect/"
+        - "**/__pycache__/"
+        - ".pytest_cache/"
+        - "mta_archives/"
+        - "resources/"
+        - "*.mtar"
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: ${default-url}
+    requires:
+      - name: bridgescout-uaa
+      - name: bridgescout-hdi-container
+
+  # --------------------------------------------------------------------------
+  # 1b. HANA HDI container deployer - creates the PAPERS / DOMAINS /
+  #     DELETED_PAPERS tables that hold the admin paper library (uploaded PDFs
+  #     as BLOBs + metadata), so it survives Cloud Foundry restarts.
+  # --------------------------------------------------------------------------
+  - name: bridgescout-db
+    type: hdb
+    path: db
+    parameters:
+      buildpack: nodejs_buildpack
+      memory: 256M
+      disk-quota: 512M
+    requires:
+      - name: bridgescout-hdi-container
+
+  # --------------------------------------------------------------------------
+  # 2. React SPA  ->  HTML5 Application Repository
+  #    Built once in before-all; this module just zips frontend/dist so that
+  #    manifest.json / xs-app.json / index.html sit at the zip root.
+  # --------------------------------------------------------------------------
+  # "npm run build:mta" in before-all produces frontend/mta-dist/bridgescout.zip
+  # (vite build -> zip of dist/* flat). mbt reads build-result as a folder and
+  # globs the artifact name inside it.
+  - name: bridgescoutui
+    type: html5
+    path: frontend
+    build-parameters:
+      builder: custom
+      commands:
+        - echo "using frontend/mta-dist/bridgescout.zip from before-all"
+      build-result: mta-dist
+      supported-platforms: []
+
+  # The HTML5 Application Repository wants an outer zip that contains one inner
+  # zip per app. build-result "resources" -> data.zip; it holds bridgescout.zip,
+  # whose root has manifest.json / xs-app.json / index.html / assets/.
+  - name: bridgescout-app-content
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: bridgescout-html5-host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - name: bridgescoutui
+          artifacts:
+            - bridgescout.zip
+          target-path: resources/
+
+  # --------------------------------------------------------------------------
+  # 3. Standalone application router - serves the SPA from the HTML5 repo,
+  #    proxies /api/* to the Python backend, authenticates via XSUAA. Gives a
+  #    directly reachable URL; Work Zone can also consume the same repo app.
+  # --------------------------------------------------------------------------
+  - name: bridgescout-approuter
+    type: approuter.nodejs
+    path: approuter
+    parameters:
+      memory: 256M
+      disk-quota: 512M
+      keep-existing-routes: true
+    requires:
+      - name: bridgescout-uaa
+      - name: bridgescout-html5-runtime
+      - name: srv-api
+        group: destinations
+        properties:
+          name: bridgescout-srv-api
+          url: ~{srv-url}
+          forwardAuthToken: true
+          timeout: 120000
+    provides:
+      - name: approuter-api
+        properties:
+          url: ${default-url}
+
+# The "bridgescout-srv-api" destination (HTML5 app -> Python backend) is created
+# by hand after the first deploy, once the backend route is known - see
+# DEPLOYMENT.md step 4. (com.sap.application.content only creates service-key
+# destinations, not plain URL destinations, so it can't do this one.)
+
+resources:
+  - name: bridgescout-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: ${app-name}-${space}
+        tenant-mode: dedicated
+
+  # HANA HDI container. Needs a running SAP HANA Cloud instance in the space and
+  # the "hana / hdi-shared" entitlement. The Python backend reads its binding
+  # from VCAP_SERVICES; with no binding it falls back to local JSON + files.
+  - name: bridgescout-hdi-container
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+
+  - name: bridgescout-html5-host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-host
+
+  - name: bridgescout-html5-runtime
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-runtime
+
+  - name: bridgescout-destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite
+      config:
+        HTML5Runtime_enabled: true
+
+# SAP Build Work Zone, standard edition is a *subaccount subscription*, not a
+# space service, so it is NOT part of this MTA. Subscribe to it once in the BTP
+# cockpit (Instances and Subscriptions), then add the published "bridgescout"
+# HTML5 app via the Work Zone Content Manager - see DEPLOYMENT.md.

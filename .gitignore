@@ -6,5 +6,26 @@ venv/
 data/index/*.faiss
 data/index/*.json
 !data/sample_papers/papers.json
+
+# Runtime paper-library overlays written by the admin (uploads + deletions + domains)
+data/uploads/
+data/deleted_papers.json
+data/domains.json
 frontend/node_modules/
 frontend/dist/
+
+# Collected corpora: keep the JSON manifests + split, not the bulky raw dumps / PDFs
+dataset/**/pdfs/
+dataset/**/raw/
+
+# SAP MTA build output
+mta_archives/
+resources/
+*.mtar
+.mta_build_tmp/
+
+# standalone approuter deps
+approuter/node_modules/
+
+# HDI deployer deps (keep db/package-lock.json committed for reproducible builds)
+db/node_modules/

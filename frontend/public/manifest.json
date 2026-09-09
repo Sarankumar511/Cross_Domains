@@ -1,0 +1,54 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "bridgescout",
+    "type": "application",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "BridgeScout",
+    "subTitle": "Cross-domain research gap discovery",
+    "description": "Extract limitations from a paper, map them to a domain-neutral problem, and surface solutions from other research fields.",
+    "tags": {
+      "keywords": ["research", "cross-domain", "gap analysis"]
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "bridgescout-display": {
+          "semanticObject": "BridgeScout",
+          "action": "display",
+          "title": "BridgeScout",
+          "subTitle": "Cross-domain research gap discovery",
+          "icon": "sap-icon://chain-link",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.120.0"
+    }
+  },
+  "sap.flp": {
+    "type": "application"
+  },
+  "sap.platform.cf": {
+    "ui5VersionNumber": ""
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "bridgescout.service"
+  }
+}

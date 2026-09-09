@@ -1,0 +1,111 @@
+{
+  "domain": "SignalProcessing",
+  "generated_utc": "2026-09-07T09:21:08+00:00",
+  "params": {
+    "per_area": 50,
+    "source_quotas": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "sources": [
+      "arxiv",
+      "openalex"
+    ],
+    "test_ratio": 0.2,
+    "seed": 42,
+    "areas": [
+      "Denoising",
+      "BlindSourceSeparation",
+      "FaultDetection",
+      "TimeSeriesForecasting",
+      "AnomalyDetection",
+      "CompressedSensing",
+      "SpeechAudio",
+      "RadarSonar"
+    ]
+  },
+  "totals": {
+    "records": 390,
+    "train": 311,
+    "test": 79,
+    "with_pdf": 190,
+    "pdf_coverage": 0.487
+  },
+  "by_source": {
+    "arxiv": 194,
+    "openalex": 196
+  },
+  "raw_fetched_by_area": {
+    "Denoising": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "BlindSourceSeparation": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "FaultDetection": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "TimeSeriesForecasting": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "AnomalyDetection": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "CompressedSensing": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "SpeechAudio": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "RadarSonar": {
+      "arxiv": 25,
+      "openalex": 25
+    }
+  },
+  "records_by_area": {
+    "Denoising": 50,
+    "BlindSourceSeparation": 49,
+    "FaultDetection": 50,
+    "TimeSeriesForecasting": 50,
+    "AnomalyDetection": 49,
+    "CompressedSensing": 49,
+    "SpeechAudio": 48,
+    "RadarSonar": 45
+  },
+  "train_by_area": {
+    "AnomalyDetection": 39,
+    "BlindSourceSeparation": 39,
+    "CompressedSensing": 39,
+    "Denoising": 40,
+    "FaultDetection": 40,
+    "RadarSonar": 36,
+    "SpeechAudio": 38,
+    "TimeSeriesForecasting": 40
+  },
+  "test_by_area": {
+    "AnomalyDetection": 10,
+    "BlindSourceSeparation": 10,
+    "CompressedSensing": 10,
+    "Denoising": 10,
+    "FaultDetection": 10,
+    "RadarSonar": 9,
+    "SpeechAudio": 10,
+    "TimeSeriesForecasting": 10
+  },
+  "pdf_stats": {
+    "downloaded": 190,
+    "failed": 4,
+    "no_source": 196,
+    "skipped_dead_route": 0,
+    "by_source": {
+      "arxiv": 190
+    }
+  }
+}

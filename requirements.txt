@@ -1,12 +1,22 @@
 anthropic>=0.40.0
-sentence-transformers>=3.0.0
 faiss-cpu>=1.8.0
 pypdf>=4.3.0
 python-dotenv>=1.0.1
 requests>=2.32.0
+certifi>=2024.7.4
 scikit-learn>=1.5.0
 numpy>=1.26.0
-pytest>=8.3.0
 fastapi>=0.115.0
 uvicorn[standard]>=0.32.0
 python-multipart>=0.0.12
+# XSUAA token validation on SAP BTP (unused locally when no XSUAA binding)
+pyjwt[crypto]>=2.9.0
+# SAP HANA client: used only when a HANA HDI container is bound (VCAP_SERVICES);
+# with no binding the library store falls back to local JSON + files.
+hdbcli>=2.19.21
+
+# NOTE: sentence-transformers (and its ~2 GB torch + CUDA deps) is intentionally
+# NOT here so the Cloud Foundry droplet stays small. bridgescout/semantic_mapping/
+# embedder.py uses it when importable and falls back to a scikit-learn
+# HashingVectorizer otherwise. For full-quality local runs: pip install -r
+# requirements-dev.txt

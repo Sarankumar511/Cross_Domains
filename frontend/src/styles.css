@@ -120,6 +120,123 @@ body {
   box-shadow: inset 3px 0 0 var(--accent);
 }
 
+.sidebar-note {
+  margin-top: 4px;
+}
+
+/* Admin left-panel section switch: Analyze | Training papers */
+.sidebar-nav {
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+  margin-bottom: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.sidebar-nav-item {
+  flex: 1 1 0;
+  padding: 7px 8px;
+  border: none;
+  border-radius: 7px;
+  background: none;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sidebar-nav-item:hover {
+  color: var(--ink);
+}
+
+.sidebar-nav-item.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Paper library: domain folder tree (admin only) */
+
+.paper-tree {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding-bottom: 16px;
+}
+
+.folder {
+  display: flex;
+  flex-direction: column;
+}
+
+.folder-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 8px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.folder-header:hover:not(:disabled) {
+  background: var(--accent-tint);
+}
+
+.folder-header:disabled {
+  cursor: default;
+}
+
+.folder-chevron {
+  width: 0.9em;
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.folder-name {
+  flex: 1;
+  text-transform: capitalize;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.folder-count {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--track);
+  border-radius: 10px;
+  padding: 1px 7px;
+}
+
+.folder-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 2px 0 6px 12px;
+  padding-left: 6px;
+  border-left: 1px solid var(--border);
+}
+
+.folder-body .paper-list-item {
+  font-size: 0.84rem;
+  padding: 7px 9px;
+}
+
 /* Upload bar (top of main content) */
 
 .upload-bar {
@@ -240,6 +357,110 @@ body {
 .paper-card h2 {
   margin: 0 0 8px 0;
   font-size: 1.3rem;
+}
+
+/* Paper viewer (right-side selected-paper view) */
+
+.paper-viewer h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.3rem;
+}
+
+.paper-viewer-head,
+.analyzed-paper-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Analyze page: two stacked, clearly-labelled sections */
+.analyze-section {
+  margin-top: 22px;
+}
+
+.analyze-section > .section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0 0 10px 2px;
+}
+
+.analyzed-paper-head h2 {
+  margin: 0 0 6px;
+}
+
+.analyzed-paper-meta {
+  margin: 4px 0 0;
+}
+
+.paper-viewer-meta {
+  margin: 2px 0 0 0;
+}
+
+.paper-toolbar {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: var(--accent-tint);
+}
+
+.btn.danger {
+  border-color: transparent;
+  background: var(--error);
+  color: #fff;
+}
+
+.btn.danger:hover {
+  filter: brightness(0.94);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.paper-section {
+  margin-top: 16px;
+}
+
+.paper-section h3 {
+  margin: 0 0 4px 0;
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+
+.paper-section p {
+  margin: 0;
+}
+
+.paper-frame {
+  width: 100%;
+  height: 62vh;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
 }
 
 .gap-card {
@@ -520,4 +741,244 @@ body.resizing-columns {
   .main-content {
     padding: 20px 16px;
   }
+}
+
+/* ---- Admin library toolbar + create-domain ---- */
+
+.library-toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.btn.small {
+  padding: 5px 10px;
+  font-size: 0.78rem;
+}
+
+.btn.primary {
+  border-color: transparent;
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn.primary:hover {
+  filter: brightness(0.95);
+  background: var(--accent);
+}
+
+.domain-create {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.domain-create input {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.82rem;
+}
+
+.folder-empty {
+  margin: 2px 0 4px 4px;
+}
+
+/* ---- Upload dialog (modal) ---- */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 11, 11, 0.45);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 16px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.modal {
+  width: 100%;
+  max-width: 560px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(11, 11, 11, 0.25);
+}
+
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-head h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.modal-close {
+  border: none;
+  background: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px 20px 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.field input,
+.field select,
+.field textarea {
+  font: inherit;
+  font-weight: 400;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field-row {
+  display: flex;
+  gap: 12px;
+}
+
+.field-row .field {
+  flex: 1;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* ---- Training banner ---- */
+
+.training-banner {
+  margin: 0 0 16px 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--accent-tint);
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ---- Ask panel ---- */
+
+.ask-panel h2 {
+  margin: 0 0 4px 0;
+  font-size: 1.2rem;
+}
+
+.ask-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.ask-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
+.ask-results {
+  list-style: none;
+  margin: 14px 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ask-result {
+  border-left: 3px solid var(--accent);
+  padding: 4px 0 4px 12px;
+}
+
+.ask-snippet {
+  margin: 0 0 3px 0;
+}
+
+/* ---- Library summary + split tags ---- */
+
+.library-summary {
+  margin: -2px 0 8px 0;
+}
+
+.paper-list-item {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.paper-list-title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.split-tag {
+  flex-shrink: 0;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 1px 5px;
+  border-radius: 6px;
+  background: var(--track);
+  color: var(--muted);
+}
+
+.split-tag.split-train {
+  background: #e7f6ec;
+  color: #1f7a3f;
+}
+
+.split-tag.split-test {
+  background: #fdeede;
+  color: #a8571a;
+}
+
+.split-tag.split-uploaded {
+  background: #e6effb;
+  color: #285db1;
+}
+
+.split-tag.split-sample {
+  background: #efeafb;
+  color: #6b3fb1;
 }

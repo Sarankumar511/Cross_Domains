@@ -1,0 +1,10 @@
+{
+  "file_suffixes": {
+    "hdbtable": { "plugin_name": "com.sap.hana.di.table" },
+    "hdbview": { "plugin_name": "com.sap.hana.di.view" },
+    "hdbindex": { "plugin_name": "com.sap.hana.di.index" },
+    "hdbconstraint": { "plugin_name": "com.sap.hana.di.constraint" },
+    "hdbsynonym": { "plugin_name": "com.sap.hana.di.synonym" },
+    "hdbsynonymconfig": { "plugin_name": "com.sap.hana.di.synonym.config" }
+  }
+}

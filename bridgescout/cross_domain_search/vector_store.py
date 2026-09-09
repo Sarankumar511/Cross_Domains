@@ -33,6 +33,26 @@ class VectorStore:
             for p in candidates
         ]
 
+    def add(self, papers: list[Paper]) -> None:
+        """Append papers to an already-built index (incremental admin upload)."""
+        if self.index is None:
+            self.build(papers)
+            return
+        candidates = [p for p in papers if p.method_text]
+        if not candidates:
+            return
+        embeddings = embed_texts([p.method_text for p in candidates]).astype("float32")
+        self.index.add(embeddings)
+        self.metadata.extend(
+            {
+                "paper_id": p.id,
+                "title": p.title,
+                "domain": p.domain,
+                "method_text": p.method_text,
+            }
+            for p in candidates
+        )
+
     def save(self) -> None:
         import faiss
 
