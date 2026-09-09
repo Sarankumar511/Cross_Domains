@@ -1,0 +1,5 @@
+-r requirements.txt
+
+# Full-quality local development: real MiniLM embeddings + test runner.
+sentence-transformers>=3.0.0
+pytest>=8.3.0

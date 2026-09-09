@@ -4,7 +4,7 @@ import json
 import re
 from dataclasses import dataclass, field
 
-from bridgescout.config import SAMPLE_PAPERS_PATH
+from bridgescout.config import MAX_GAP_SOURCE_CHARS, SAMPLE_PAPERS_PATH
 
 _SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?])\s+(?=[A-Z(])")
 _WHITESPACE_RE = re.compile(r"\s+")
@@ -54,7 +54,9 @@ def load_pdf_as_paper(pdf_path: str, title: str | None = None, domain: str = "Un
         title=title or paper_id,
         domain=domain,
         abstract=cleaned[:500],
-        limitations_text=cleaned,
+        # Gap extraction only scans the first MAX_GAP_SOURCE_CHARS anyway; keeping
+        # the whole PDF text here just bloats the API response and the sidebar.
+        limitations_text=cleaned[:MAX_GAP_SOURCE_CHARS],
         method_text="",
         source="pdf",
     )

@@ -1,0 +1,65 @@
+_schema-version: "3.3"
+ID: bridgescout
+description: BridgeScout - cross-domain research gap discovery (SAP BTP Cloud Foundry)
+version: 1.0.0
+modules:
+- name: bridgescout-srv
+  type: python
+  path: bridgescout-srv
+  requires:
+  - name: bridgescout-uaa
+  provides:
+  - name: srv-api
+    properties:
+      srv-url: ${default-url}
+  parameters:
+    buildpack: python_buildpack
+    command: uvicorn bridgescout.api.app:app --host 0.0.0.0 --port $PORT
+    disk-quota: 2048M
+    health-check-http-endpoint: /health
+    health-check-type: http
+    memory: 1024M
+- name: bridgescout-app-content
+  type: com.sap.application.content
+  path: bridgescout-app-content
+  requires:
+  - name: bridgescout-html5-host
+    parameters:
+      content-target: true
+resources:
+- name: bridgescout-uaa
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      tenant-mode: dedicated
+      xsappname: ${app-name}-${space}
+    path: ./xs-security.json
+    service: xsuaa
+    service-plan: application
+- name: bridgescout-html5-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-host
+- name: bridgescout-html5-runtime
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-runtime
+- name: bridgescout-destination
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+    service: destination
+    service-plan: lite
+parameters:
+  app-name: bridgescout
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npm --prefix frontend ci
+    - npm --prefix frontend run build

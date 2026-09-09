@@ -3,7 +3,7 @@ import type { Paper } from "../types";
 import { uploadPaper } from "../api";
 
 interface UploadBarProps {
-  onUploaded: (paper: Paper) => void;
+  onUploaded: (paper: Paper, file: File) => void;
 }
 
 export function UploadBar({ onUploaded }: UploadBarProps) {
@@ -20,7 +20,7 @@ export function UploadBar({ onUploaded }: UploadBarProps) {
     setError(null);
     try {
       const paper = await uploadPaper(file, domain.trim() || "Unknown");
-      onUploaded(paper);
+      onUploaded(paper, file);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Upload failed");
     } finally {

@@ -1,6 +1,6 @@
 Backend:
 
-uvicorn bridgescout.api.app:app --reload --port 8000
+python -m uvicorn bridgescout.api.app:app --reload --port 8000
 
 ------------------------------------------------------
 

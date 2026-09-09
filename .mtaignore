@@ -1,0 +1,15 @@
+.git/
+.venv/
+venv/
+_inspect/
+dataset/
+frontend/node_modules/
+**/__pycache__/
+.pytest_cache/
+mta_archives/
+resources/
+*.mtar
+*.pyc
+SampleReport.pdf
+approuter/node_modules/
+data/index/

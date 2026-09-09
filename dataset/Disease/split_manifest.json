@@ -1,0 +1,111 @@
+{
+  "domain": "Disease",
+  "generated_utc": "2026-09-07T08:12:33+00:00",
+  "params": {
+    "per_area": 50,
+    "source_quotas": {
+      "pubmed": 25,
+      "arxiv": 25
+    },
+    "sources": [
+      "pubmed",
+      "arxiv"
+    ],
+    "test_ratio": 0.2,
+    "seed": 42,
+    "areas": [
+      "Cardiovascular",
+      "Oncology",
+      "Neurological",
+      "InfectiousDisease",
+      "Respiratory",
+      "MetabolicDiabetes",
+      "Autoimmune",
+      "RenalKidney"
+    ]
+  },
+  "totals": {
+    "records": 389,
+    "train": 311,
+    "test": 78,
+    "with_pdf": 190,
+    "pdf_coverage": 0.488
+  },
+  "by_source": {
+    "pubmed": 195,
+    "arxiv": 194
+  },
+  "raw_fetched_by_area": {
+    "Cardiovascular": {
+      "pubmed": 25,
+      "arxiv": 25
+    },
+    "Oncology": {
+      "pubmed": 25,
+      "arxiv": 25
+    },
+    "Neurological": {
+      "pubmed": 25,
+      "arxiv": 25
+    },
+    "InfectiousDisease": {
+      "pubmed": 25,
+      "arxiv": 25
+    },
+    "Respiratory": {
+      "pubmed": 25,
+      "arxiv": 25
+    },
+    "MetabolicDiabetes": {
+      "pubmed": 25,
+      "arxiv": 25
+    },
+    "Autoimmune": {
+      "pubmed": 25,
+      "arxiv": 25
+    },
+    "RenalKidney": {
+      "pubmed": 25,
+      "arxiv": 25
+    }
+  },
+  "records_by_area": {
+    "Cardiovascular": 50,
+    "Oncology": 50,
+    "Neurological": 46,
+    "InfectiousDisease": 50,
+    "Respiratory": 50,
+    "MetabolicDiabetes": 48,
+    "Autoimmune": 50,
+    "RenalKidney": 45
+  },
+  "train_by_area": {
+    "Autoimmune": 40,
+    "Cardiovascular": 40,
+    "InfectiousDisease": 40,
+    "MetabolicDiabetes": 38,
+    "Neurological": 37,
+    "Oncology": 40,
+    "RenalKidney": 36,
+    "Respiratory": 40
+  },
+  "test_by_area": {
+    "Autoimmune": 10,
+    "Cardiovascular": 10,
+    "InfectiousDisease": 10,
+    "MetabolicDiabetes": 10,
+    "Neurological": 9,
+    "Oncology": 10,
+    "RenalKidney": 9,
+    "Respiratory": 10
+  },
+  "pdf_stats": {
+    "downloaded": 190,
+    "failed": 116,
+    "no_source": 83,
+    "skipped_dead_route": 97,
+    "by_source": {
+      "arxiv": 190
+    }
+  }
+}

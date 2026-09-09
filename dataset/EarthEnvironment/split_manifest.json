@@ -1,0 +1,111 @@
+{
+  "domain": "EarthEnvironment",
+  "generated_utc": "2026-09-07T09:45:39+00:00",
+  "params": {
+    "per_area": 50,
+    "source_quotas": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "sources": [
+      "arxiv",
+      "openalex"
+    ],
+    "test_ratio": 0.2,
+    "seed": 42,
+    "areas": [
+      "RemoteSensing",
+      "Seismology",
+      "ClimateModeling",
+      "Hydrology",
+      "AirQuality",
+      "NaturalHazards",
+      "Oceanography",
+      "GeospatialMapping"
+    ]
+  },
+  "totals": {
+    "records": 375,
+    "train": 300,
+    "test": 75,
+    "with_pdf": 171,
+    "pdf_coverage": 0.456
+  },
+  "by_source": {
+    "arxiv": 178,
+    "openalex": 197
+  },
+  "raw_fetched_by_area": {
+    "RemoteSensing": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "Seismology": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "ClimateModeling": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "Hydrology": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "AirQuality": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "NaturalHazards": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "Oceanography": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "GeospatialMapping": {
+      "arxiv": 25,
+      "openalex": 25
+    }
+  },
+  "records_by_area": {
+    "RemoteSensing": 50,
+    "Seismology": 49,
+    "ClimateModeling": 50,
+    "Hydrology": 50,
+    "AirQuality": 48,
+    "NaturalHazards": 44,
+    "Oceanography": 37,
+    "GeospatialMapping": 47
+  },
+  "train_by_area": {
+    "AirQuality": 38,
+    "ClimateModeling": 40,
+    "GeospatialMapping": 38,
+    "Hydrology": 40,
+    "NaturalHazards": 35,
+    "Oceanography": 30,
+    "RemoteSensing": 40,
+    "Seismology": 39
+  },
+  "test_by_area": {
+    "AirQuality": 10,
+    "ClimateModeling": 10,
+    "GeospatialMapping": 9,
+    "Hydrology": 10,
+    "NaturalHazards": 9,
+    "Oceanography": 7,
+    "RemoteSensing": 10,
+    "Seismology": 10
+  },
+  "pdf_stats": {
+    "downloaded": 171,
+    "failed": 7,
+    "no_source": 197,
+    "skipped_dead_route": 0,
+    "by_source": {
+      "arxiv": 171
+    }
+  }
+}

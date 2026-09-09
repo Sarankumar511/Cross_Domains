@@ -1,0 +1,12 @@
+.git/
+.venv/
+venv/
+frontend/
+dataset/
+tests/
+mta_archives/
+resources/
+*.mtar
+**/__pycache__/
+*.pyc
+SampleReport.pdf

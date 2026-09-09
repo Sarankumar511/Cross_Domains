@@ -1,0 +1,111 @@
+{
+  "domain": "Agriculture",
+  "generated_utc": "2026-09-07T09:58:52+00:00",
+  "params": {
+    "per_area": 50,
+    "source_quotas": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "sources": [
+      "arxiv",
+      "openalex"
+    ],
+    "test_ratio": 0.2,
+    "seed": 42,
+    "areas": [
+      "CropDiseaseDetection",
+      "YieldPrediction",
+      "PrecisionAgriculture",
+      "WeedPestDetection",
+      "PlantPhenotyping",
+      "SoilMonitoring",
+      "LivestockMonitoring",
+      "FewShotAugmentation"
+    ]
+  },
+  "totals": {
+    "records": 367,
+    "train": 293,
+    "test": 74,
+    "with_pdf": 177,
+    "pdf_coverage": 0.482
+  },
+  "by_source": {
+    "arxiv": 181,
+    "openalex": 186
+  },
+  "raw_fetched_by_area": {
+    "CropDiseaseDetection": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "YieldPrediction": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "PrecisionAgriculture": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "WeedPestDetection": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "PlantPhenotyping": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "SoilMonitoring": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "LivestockMonitoring": {
+      "arxiv": 25,
+      "openalex": 25
+    },
+    "FewShotAugmentation": {
+      "arxiv": 25,
+      "openalex": 25
+    }
+  },
+  "records_by_area": {
+    "CropDiseaseDetection": 50,
+    "YieldPrediction": 48,
+    "PrecisionAgriculture": 33,
+    "WeedPestDetection": 47,
+    "PlantPhenotyping": 46,
+    "SoilMonitoring": 49,
+    "LivestockMonitoring": 48,
+    "FewShotAugmentation": 46
+  },
+  "train_by_area": {
+    "CropDiseaseDetection": 40,
+    "FewShotAugmentation": 37,
+    "LivestockMonitoring": 38,
+    "PlantPhenotyping": 37,
+    "PrecisionAgriculture": 26,
+    "SoilMonitoring": 39,
+    "WeedPestDetection": 38,
+    "YieldPrediction": 38
+  },
+  "test_by_area": {
+    "CropDiseaseDetection": 10,
+    "FewShotAugmentation": 9,
+    "LivestockMonitoring": 10,
+    "PlantPhenotyping": 9,
+    "PrecisionAgriculture": 7,
+    "SoilMonitoring": 10,
+    "WeedPestDetection": 9,
+    "YieldPrediction": 10
+  },
+  "pdf_stats": {
+    "downloaded": 177,
+    "failed": 4,
+    "no_source": 186,
+    "skipped_dead_route": 0,
+    "by_source": {
+      "arxiv": 177
+    }
+  }
+}
